@@ -1,0 +1,10 @@
+n=int(input("Enter a value:"))
+for i in range (n,0,-1):
+    for j in range(n-i):
+        print(" ", end=' ')
+    for j in range(2*i-1):
+        if i==n or i==1 or j==0 or j==2*i-2:
+           print("*",end=' ')
+        else:
+             print(' ',end=' ')
+    print()
