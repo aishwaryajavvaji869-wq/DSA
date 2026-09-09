@@ -1,0 +1,37 @@
+#shortest path using dijkstra's method
+vertices=['A','B','C','D']
+n= int(input("Enter number of vertices"))
+graph=[[0] * n for _ in range(n)]
+print(graph)
+edges= int(input("Enter number of edges:"))
+print("Enter source: Destination: weight")
+for i in range(edges):
+    s,d,w=input().split()
+    w= int(w)
+    s= vertices.index(s)
+    d=vertices.index(d)
+    graph[s][d]= w
+source= input("Enter source vertex:")
+source= vertices.index(source)
+distance= [100]*n
+visited= [False]*n
+for i in range(n):
+    min_distance= 100
+    current= -1
+    for j in range(n):
+        if not visited[j] and distance[j] <min_distance:
+            min_distance= distance[j]
+            current=j
+    if current==-1:
+        break
+    visited[current]=True
+    for i in range(n):
+        if graph[current][j] !=0:
+            new_distance= distance[current]+graph[current][j]
+            if new_distance< distance[j]:
+                distance[j]=new_distance
+print("shortest distance from",vertices[source])
+for i in range(n):
+    print(vertices[source], "->", vertices[i],"=", distance[i])
+    
+    
